@@ -1,0 +1,40 @@
+<div class="card shadow-effect mt-3">
+    <div class="card-body">
+        <div class="text-center mt-3 mb-5">
+            <h4 class="card-title"> SUBSCRIPTION FORM </h4>
+            <p class="card-text m-auto subs-text "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi, neque Lorem ipsum dolor sit amet.</p>
+
+            <div class="alert alert-danger mt-3" *ngIf="isEmailError">
+                Email is already in use.
+            </div>
+
+            <div class="alert alert-info mt-3" *ngIf="isSubscribed">
+                Thankyou for subscribing to our newsletter service. Stay tuned for awesome blog post..!
+            </div>
+
+            <form class="row mb-5 mt-5" #subForm= ngForm (ngSubmit)="onSubmit(subForm.value)" *ngIf="!isSubscribed">
+                <div class="form-group col-md-5">
+                    <input type="text" name="name" id="" class="form-control" placeholder="Your Name" ngModel #name="ngModel" required [ngClass]="{'is-invalid':name.touched && name.invalid}">
+                    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                        <div *ngIf="name.errors?.['required']" >Name is Required</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-md-5">
+                    <input type="email" name="email" id="" class="form-control" placeholder="Email Address" #email="ngModel" ngModel required email [ngClass]="{'is-invalid':email.touched && email.invalid}">
+                    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                        <div *ngIf="email.errors?.['required']">Email is required</div>
+                        <div *ngIf="email.errors?.['email']">Enter valid Email Address</div>
+                    </div>
+                </div>
+    
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-primary btn-theme" [disabled]="subForm.invalid"> SUBSCRIBE </button>
+                </div>
+            </form>
+        </div>
+        
+
+       
+    </div>
+</div>

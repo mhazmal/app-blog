@@ -1,0 +1,18 @@
+.featured-section {
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom: 130px;
+     
+    background-color: var(--primary-color);
+}
+
+
+.btn-sub {
+    background-color: var(--primary-color);
+}
+
+h2 {
+    color: var(--primary-color);
+}
+
+
